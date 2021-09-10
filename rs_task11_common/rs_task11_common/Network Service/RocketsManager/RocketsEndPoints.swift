@@ -13,7 +13,7 @@ enum RocketsEndPoints {
 }
 
 extension RocketsEndPoints: EndPointProtocol {
-    
+
     var baseUrl: URL {
         guard let url = URL(string: "https://api.spacexdata.com/v4/rockets") else { fatalError("baseURL could not be configured.")}
                 return url
@@ -38,29 +38,5 @@ extension RocketsEndPoints: EndPointProtocol {
     }
 }
 
-public enum NetResult<Error> {
-    case success
-    case failure(Error)
-}
 
-public enum NetworkResponse: String, Error {
-    case success
-    case authentificationError = "Ошибка авторизации"
-    case failed = "Ошибка"
-}
 
-public class AsapService {
-    //let router = Router<AsapApi>()
-    
-    public init() {
-    
-    }
-
-    public func handleNetworkResponse(_ response: HTTPURLResponse) -> NetResult<Error> {
-         switch response.statusCode {
-         case 200...299 : return .success
-         case 401...500 : return .failure(NetworkResponse.authentificationError)
-         default: return .failure(NetworkResponse.failed)
-         }
-     }
-}

@@ -47,7 +47,7 @@ extension LaunchesEndPoints: EndPointProtocol {
             return .get
         case .getNextLaunch:
             return .get
-        case .getLaunch(id: let id):
+        case .getLaunch:
             return .get
         case .getAllPastLaunch:
             return .get

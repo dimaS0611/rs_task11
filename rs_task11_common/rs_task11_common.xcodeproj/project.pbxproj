@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4A53BE126EB3CC300362150 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BE026EB3CC300362150 /* Router.swift */; };
+		D4A53BE326EB3CF100362150 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BE226EB3CF100362150 /* NetworkRouter.swift */; };
+		D4A53BE526EB3D2500362150 /* NetworkRouterCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BE426EB3D2500362150 /* NetworkRouterCompletion.swift */; };
+		D4A53BE726EB3FF700362150 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BE626EB3FF700362150 /* URLRequest+Extension.swift */; };
+		D4A53BEC26EB410C00362150 /* RocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BEB26EB410C00362150 /* RocketManager.swift */; };
+		D4A53BEE26EB41B500362150 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BED26EB41B500362150 /* NetworkResponse.swift */; };
+		D4A53BF026EB41CA00362150 /* NetResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BEF26EB41CA00362150 /* NetResult.swift */; };
 		D4CAA8A726EA56A300F50931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CAA8A626EA56A300F50931 /* AppDelegate.swift */; };
 		D4CAA8A926EA56A300F50931 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CAA8A826EA56A300F50931 /* SceneDelegate.swift */; };
 		D4CAA8AB26EA56A300F50931 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CAA8AA26EA56A300F50931 /* ViewController.swift */; };
@@ -40,6 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4A53BE026EB3CC300362150 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D4A53BE226EB3CF100362150 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		D4A53BE426EB3D2500362150 /* NetworkRouterCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterCompletion.swift; sourceTree = "<group>"; };
+		D4A53BE626EB3FF700362150 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		D4A53BEB26EB410C00362150 /* RocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketManager.swift; sourceTree = "<group>"; };
+		D4A53BED26EB41B500362150 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		D4A53BEF26EB41CA00362150 /* NetResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResult.swift; sourceTree = "<group>"; };
 		D4CAA8A326EA56A300F50931 /* rs_task11_common.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rs_task11_common.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CAA8A626EA56A300F50931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4CAA8A826EA56A300F50931 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +100,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4A53BDF26EB3CB700362150 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D4A53BE026EB3CC300362150 /* Router.swift */,
+				D4A53BE226EB3CF100362150 /* NetworkRouter.swift */,
+				D4A53BE426EB3D2500362150 /* NetworkRouterCompletion.swift */,
+				D4A53BE626EB3FF700362150 /* URLRequest+Extension.swift */,
+				D4A53BED26EB41B500362150 /* NetworkResponse.swift */,
+				D4A53BEF26EB41CA00362150 /* NetResult.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D4A53BE826EB408700362150 /* RocketsManager */ = {
+			isa = PBXGroup;
+			children = (
+				D4CAA8DC26EA5BD500F50931 /* RocketsEndPoints.swift */,
+				D4A53BEB26EB410C00362150 /* RocketManager.swift */,
+			);
+			path = RocketsManager;
+			sourceTree = "<group>";
+		};
+		D4A53BE926EB409300362150 /* LaunchesManager */ = {
+			isa = PBXGroup;
+			children = (
+				D4CAA8DE26EA5BEB00F50931 /* LaunchesEndPoints.swift */,
+			);
+			path = LaunchesManager;
+			sourceTree = "<group>";
+		};
+		D4A53BEA26EB409E00362150 /* LaunchpadsManager */ = {
+			isa = PBXGroup;
+			children = (
+				D4CAA8E026EA5C0A00F50931 /* LaunchpadsEndPoints.swift */,
+			);
+			path = LaunchpadsManager;
+			sourceTree = "<group>";
+		};
 		D4CAA89A26EA56A300F50931 = {
 			isa = PBXGroup;
 			children = (
@@ -151,20 +203,21 @@
 		D4CAA8DA26EA586800F50931 /* Network Service */ = {
 			isa = PBXGroup;
 			children = (
-				D4CAA8DB26EA5B1500F50931 /* EndPoints */,
+				D4A53BEA26EB409E00362150 /* LaunchpadsManager */,
+				D4A53BE926EB409300362150 /* LaunchesManager */,
+				D4A53BE826EB408700362150 /* RocketsManager */,
+				D4A53BDF26EB3CB700362150 /* Service */,
+				D4CAA8DB26EA5B1500F50931 /* EndPoint */,
 			);
 			path = "Network Service";
 			sourceTree = "<group>";
 		};
-		D4CAA8DB26EA5B1500F50931 /* EndPoints */ = {
+		D4CAA8DB26EA5B1500F50931 /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
-				D4CAA8DC26EA5BD500F50931 /* RocketsEndPoints.swift */,
-				D4CAA8DE26EA5BEB00F50931 /* LaunchesEndPoints.swift */,
-				D4CAA8E026EA5C0A00F50931 /* LaunchpadsEndPoints.swift */,
 				D4CAA8E226EA5D3200F50931 /* EndPointProtocol.swift */,
 			);
-			path = EndPoints;
+			path = EndPoint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,9 +351,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4CAA8AB26EA56A300F50931 /* ViewController.swift in Sources */,
+				D4A53BE726EB3FF700362150 /* URLRequest+Extension.swift in Sources */,
 				D4CAA8A726EA56A300F50931 /* AppDelegate.swift in Sources */,
 				D4CAA8B126EA56A300F50931 /* rs_task11_common.xcdatamodeld in Sources */,
+				D4A53BEC26EB410C00362150 /* RocketManager.swift in Sources */,
+				D4A53BF026EB41CA00362150 /* NetResult.swift in Sources */,
 				D4CAA8DF26EA5BEB00F50931 /* LaunchesEndPoints.swift in Sources */,
+				D4A53BE326EB3CF100362150 /* NetworkRouter.swift in Sources */,
+				D4A53BE126EB3CC300362150 /* Router.swift in Sources */,
+				D4A53BE526EB3D2500362150 /* NetworkRouterCompletion.swift in Sources */,
+				D4A53BEE26EB41B500362150 /* NetworkResponse.swift in Sources */,
 				D4CAA8E326EA5D3200F50931 /* EndPointProtocol.swift in Sources */,
 				D4CAA8A926EA56A300F50931 /* SceneDelegate.swift in Sources */,
 				D4CAA8DD26EA5BD500F50931 /* RocketsEndPoints.swift in Sources */,
