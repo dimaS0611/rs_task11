@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D499C93A26EB864900077DCE /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D499C93926EB864900077DCE /* Box.swift */; };
+		D499C93D26EB86D400077DCE /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D499C93C26EB86D400077DCE /* Rocket.swift */; };
 		D4A53BE126EB3CC300362150 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BE026EB3CC300362150 /* Router.swift */; };
 		D4A53BE326EB3CF100362150 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BE226EB3CF100362150 /* NetworkRouter.swift */; };
 		D4A53BE526EB3D2500362150 /* NetworkRouterCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BE426EB3D2500362150 /* NetworkRouterCompletion.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D499C93926EB864900077DCE /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		D499C93C26EB86D400077DCE /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		D4A53BE026EB3CC300362150 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D4A53BE226EB3CF100362150 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		D4A53BE426EB3D2500362150 /* NetworkRouterCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterCompletion.swift; sourceTree = "<group>"; };
@@ -100,6 +104,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D499C93826EB85FD00077DCE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D499C93926EB864900077DCE /* Box.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D499C93B26EB86C900077DCE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D499C93C26EB86D400077DCE /* Rocket.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D4A53BDF26EB3CB700362150 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +181,8 @@
 		D4CAA8A526EA56A300F50931 /* rs_task11_common */ = {
 			isa = PBXGroup;
 			children = (
+				D499C93B26EB86C900077DCE /* Models */,
+				D499C93826EB85FD00077DCE /* Utilities */,
 				D4CAA8DA26EA586800F50931 /* Network Service */,
 				D4CAA8D926EA577300F50931 /* Supporting Files */,
 				D4CAA8AA26EA56A300F50931 /* ViewController.swift */,
@@ -359,10 +381,12 @@
 				D4CAA8DF26EA5BEB00F50931 /* LaunchesEndPoints.swift in Sources */,
 				D4A53BE326EB3CF100362150 /* NetworkRouter.swift in Sources */,
 				D4A53BE126EB3CC300362150 /* Router.swift in Sources */,
+				D499C93D26EB86D400077DCE /* Rocket.swift in Sources */,
 				D4A53BE526EB3D2500362150 /* NetworkRouterCompletion.swift in Sources */,
 				D4A53BEE26EB41B500362150 /* NetworkResponse.swift in Sources */,
 				D4CAA8E326EA5D3200F50931 /* EndPointProtocol.swift in Sources */,
 				D4CAA8A926EA56A300F50931 /* SceneDelegate.swift in Sources */,
+				D499C93A26EB864900077DCE /* Box.swift in Sources */,
 				D4CAA8DD26EA5BD500F50931 /* RocketsEndPoints.swift in Sources */,
 				D4CAA8E126EA5C0A00F50931 /* LaunchpadsEndPoints.swift in Sources */,
 			);

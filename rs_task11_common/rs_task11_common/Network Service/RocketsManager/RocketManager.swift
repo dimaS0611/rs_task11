@@ -8,8 +8,8 @@
 import Foundation
 
 public protocol RocketManagerProtocol {
-   // func getAllRockets(completion: @escaping (Result<Smth,Error>) -> Void)
-    //func getRocket(id: String)
+    func getAllRockets(completion: @escaping (Result<RocketModel,Error>) -> Void)
+    func getRocket(id: String, completion: @escaping (Result<RocketModel,Error>) -> Void)
 }
 
 public class RocketsManager {
@@ -23,7 +23,6 @@ public class RocketsManager {
          }
      }
 }
-
 
 extension RocketsManager: RocketManagerProtocol {
     
@@ -60,14 +59,16 @@ extension RocketsManager: RocketManagerProtocol {
         })
     }
     
-    public func getAllRockets() {
-//        routerRequest(.getAllRockets,
-//                      decodeType: T##(Decodable & Encodable).Protocol, completion: T##(Result<Decodable & Encodable, Error>) -> Void)
+    public func getAllRockets(completion: @escaping (Result<RocketModel, Error>) -> Void) {
+        routerRequest(.getAllRockets,
+                      decodeType: RocketModel.self,
+                      completion: completion)
     }
     
-    public func getRocket(id: String) {
-      //
+    public func getRocket(id: String, completion: @escaping (Result<RocketModel, Error>) -> Void) {
+        routerRequest(.getRocket(id: id),
+                      decodeType: RocketModel.self,
+                      completion: completion)
     }
-    
     
 }
