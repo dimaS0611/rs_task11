@@ -48,6 +48,7 @@ extension RocketsManager: RocketManagerProtocol {
                     }
                     do {
                         let apiResponse: T = try JSONDecoder().decode(decodeType, from: responseData)
+                        print(apiResponse)
                         completion(.success(apiResponse))
                     } catch {
                         completion(.failure(NetworkResponse.ubableToDecode))

@@ -14,7 +14,9 @@ extension RocketsViewController {
         
         var screenWidth: CGFloat = UIScreen.main.bounds.width
         var screenHeight: CGFloat = UIScreen.main.bounds.height
-        var cellsOffset: CGFloat = 19.0
+        
+        var cellsOffset: CGFloat = 17.0
+        var cellHeight: CGFloat = 360.0
     }
 }
 
@@ -41,9 +43,20 @@ class RocketsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = appearance.backgroundColor
+        self.rocketCollectionView.backgroundColor = appearance.backgroundColor
+        
+        self.rocketCollectionView.delegate = self
+        self.rocketCollectionView.dataSource = self
+        
+        addSubview()
+        
+        self.rocketCollectionView.register(RocketCell.self, forCellWithReuseIdentifier: "RocketCell")
         
         viewModel.rocketsCellsData.bind { [weak self] model in
-            self?.rocketsModel = model
+            self?.rocketsModel.append(contentsOf: model)
+            DispatchQueue.main.async {
+                self?.rocketCollectionView.reloadData()
+            }
         }
     }
     
@@ -51,6 +64,7 @@ class RocketsViewController: UIViewController {
     
     func addSubview() {
         view.addSubview(rocketCollectionView)
+        setupLayout()
     }
     
     func setupLayout() {
@@ -76,6 +90,31 @@ extension RocketsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        UICollectionViewCell()
+        let model = rocketsModel[indexPath.row]
+        let cell = rocketCollectionView.dequeueReusableCell(withReuseIdentifier: "RocketCell", for: indexPath) as? RocketCell
+        cell?.setupCell(model: model)
+        
+        cell?.layer.cornerRadius = 12.0
+        cell?.layer.borderWidth = 0.0
+        cell?.layer.shadowColor = UIColor.black.cgColor
+        cell?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell?.layer.shadowRadius = 3.0
+        cell?.layer.shadowOpacity = 0.5
+        cell?.layer.masksToBounds = false
+        
+        return cell ?? UICollectionViewCell()
+    }
+}
+
+extension RocketsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = appearance.screenWidth - (2 * appearance.cellsOffset)
+        let height = appearance.cellHeight
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 30.0, left: 0.0, bottom: 30.0, right: 0.0)
     }
 }

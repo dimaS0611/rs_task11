@@ -133,11 +133,11 @@ class RocketCell: UICollectionViewCell {
         launchDateLabel.text = model.launchDate
         costLabel.text = model.cost
         successLabel.text = model.successPercent
-        
+        self.backgroundColor = .white
         addSubview()
     }
     
-    func addSubview() {
+    private func addSubview() {
         self.addSubview(rocketImage)
         self.addSubview(labelsContainer)
         labelsContainer.addSubview(titleLabel)
@@ -160,7 +160,7 @@ class RocketCell: UICollectionViewCell {
         setupLayout()
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         /// rocketImage layout
         rocketImage.translatesAutoresizingMaskIntoConstraints = false
         rocketImage.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
@@ -183,9 +183,10 @@ class RocketCell: UICollectionViewCell {
         titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: labelsContainer.trailingAnchor, constant: 200.0).isActive = true
         
         /// launcj info stackView layout
+        infoStackView.translatesAutoresizingMaskIntoConstraints = false
         infoStackView.leadingAnchor.constraint(lessThanOrEqualTo: labelsContainer.leadingAnchor, constant: 20.0).isActive = true
         infoStackView.trailingAnchor.constraint(lessThanOrEqualTo: labelsContainer.trailingAnchor, constant: 20.0).isActive = true
-        infoStackView.bottomAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: 21.0).isActive = true
+        infoStackView.bottomAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: -21.0).isActive = true
         infoStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25).isActive = true
     }
     

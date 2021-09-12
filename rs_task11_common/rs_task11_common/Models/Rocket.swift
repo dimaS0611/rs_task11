@@ -22,9 +22,9 @@ public struct RocketModel: Codable {
     let diameter: Size
     let mass: Mass
     let payloadWeights: [Rocket]
-    let firstStage: Stage
-    let secondStage: Stage
-    let engines: Engines
+    let firstStage: Stage?
+    let secondStage: Stage?
+    let engines: Engines?
     let landingLegs: LandingLegs
     let frickrImages: [String]
     let wikipedia: String
@@ -45,7 +45,7 @@ public struct RocketModel: Codable {
         case diameter
         case mass
         case payloadWeights = "payload_weights"
-        case firstStage = "firstStage"
+        case firstStage = "first_stage"
         case secondStage = "second_stage"
         case engines
         case landingLegs = "landing_legs"
@@ -70,9 +70,9 @@ public struct RocketModel: Codable {
         diameter = try container.decode(Size.self, forKey: .diameter)
         mass  = try container.decode(Mass.self, forKey: .mass)
         payloadWeights = try container.decode([Rocket].self, forKey: .payloadWeights)
-        firstStage = try container.decode(Stage.self, forKey: .firstStage)
-        secondStage = try container.decode(Stage.self, forKey: .secondStage)
-        engines = try container.decode(Engines.self, forKey: .engines)
+        firstStage = try container.decodeIfPresent(Stage.self, forKey: .firstStage)
+        secondStage = try container.decodeIfPresent(Stage.self, forKey: .secondStage)
+        engines = try container.decodeIfPresent(Engines.self, forKey: .engines)
         landingLegs = try container.decode(LandingLegs.self, forKey: .landingLegs)
         frickrImages = try container.decode([String].self, forKey: .frickrImages)
         wikipedia = try container.decode(String.self, forKey: .wikipedia)
@@ -81,8 +81,8 @@ public struct RocketModel: Codable {
 }
 
 struct Size: Codable {
-    let meters: Int
-    let feet: Int
+    let meters: Double?
+    let feet: Double?
     
     public enum CodingKeys: String, CodingKey {
         case meters
@@ -91,8 +91,8 @@ struct Size: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        meters = try container.decode(Int.self, forKey: .meters)
-        feet = try container.decode(Int.self, forKey: .feet)
+        meters = try container.decodeIfPresent(Double.self, forKey: .meters)
+        feet = try container.decodeIfPresent(Double.self, forKey: .feet)
     }
 }
 
@@ -137,9 +137,9 @@ struct Rocket: Codable {
 struct Stage: Codable {
     let reusable: Bool
     let engines: Int
-    let fuelAmount: Int
-    let burnTime: Int
-    let thrustVacum: SeaLevel
+    let fuelAmount: Double
+    let burnTime: Double?
+    let thrustVacum: SeaLevel?
     let payloads: Payload?
     
     public enum CodingKeys: String, CodingKey {
@@ -155,16 +155,16 @@ struct Stage: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         reusable = try container.decode(Bool.self, forKey: .reusable)
         engines = try container.decode(Int.self, forKey: .engines)
-        fuelAmount = try container.decode(Int.self, forKey: .fuelAmount)
-        burnTime = try container.decode(Int.self, forKey: .burnTime)
-        thrustVacum = try container.decode(SeaLevel.self, forKey: .thrustVacum)
+        fuelAmount = try container.decode(Double.self, forKey: .fuelAmount)
+        burnTime = try container.decodeIfPresent(Double.self, forKey: .burnTime)
+        thrustVacum = try container.decodeIfPresent(SeaLevel.self, forKey: .thrustVacum)
         payloads = try container.decodeIfPresent(Payload.self, forKey: .payloads)
     }
 }
 
 struct SeaLevel: Codable {
-    let kN: Int
-    let lbf: Int
+    let kN: Double
+    let lbf: Double
     
     public enum CodingKeys: String, CodingKey {
         case kN
@@ -173,13 +173,18 @@ struct SeaLevel: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        kN = try container.decode(Int.self, forKey: .kN)
-        lbf = try container.decode(Int.self, forKey: .lbf)
+        kN = try container.decode(Double.self, forKey: .kN)
+        lbf = try container.decode(Double.self, forKey: .lbf)
+    }
+    
+    init(kn: Double, lbf: Double) {
+        self.kN = kn
+        self.lbf = lbf
     }
 }
 
 struct Payload: Codable {
-    let compositeFairing: CompositeFairing
+    let compositeFairing: CompositeFairing?
     let option: String
     
     public enum CodingKeys: String, CodingKey {
@@ -189,13 +194,13 @@ struct Payload: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        compositeFairing = try container.decode(CompositeFairing.self, forKey: .compositeFairing)
+        compositeFairing = try container.decodeIfPresent(CompositeFairing.self, forKey: .compositeFairing)
         option = try container.decode(String.self, forKey: .option)
     }
 }
 struct CompositeFairing: Codable {
-    let height: Size
-    let diameter: Size
+    let height: Size?
+    let diameter: Size?
     
     public enum CodingKeys: String, CodingKey {
         case height
@@ -204,8 +209,8 @@ struct CompositeFairing: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        height = try container.decode(Size.self, forKey: .height)
-        diameter = try container.decode(Size.self, forKey: .diameter)
+        height = try container.decodeIfPresent(Size.self, forKey: .height)
+        diameter = try container.decodeIfPresent(Size.self, forKey: .diameter)
     }
 }
 
@@ -213,14 +218,14 @@ struct Engines: Codable {
     let number: Int
     let type: String
     let version: String
-    let layout: String
+    let layout: String?
     let isp: ISP
-    let engineLossMax: Int
-    let propellatn1: Int
-    let propellatn2: Int
+    let engineLossMax: Int?
+    let propellatn1: String
+    let propellatn2: String
     let thrustSeaLevel: SeaLevel
     let thrustVacum: SeaLevel
-    let thrustToWeight: Int
+    let thrustToWeight: Double
     
     public enum CodingKeys: String, CodingKey {
         case number
@@ -241,14 +246,14 @@ struct Engines: Codable {
         number = try container.decode(Int.self, forKey: .number)
         type = try container.decode(String.self, forKey: .type)
         version = try container.decode(String.self, forKey: .version)
-        layout = try container.decode(String.self, forKey: .layout)
+        layout = try container.decodeIfPresent(String.self, forKey: .layout)
         isp = try container.decode(ISP.self, forKey: .isp)
-        engineLossMax = try container.decode(Int.self, forKey: .engineLossMax)
-        propellatn1 = try container.decode(Int.self, forKey: .propellatn1)
-        propellatn2 = try container.decode(Int.self, forKey: .propellatn2)
+        engineLossMax = try container.decodeIfPresent(Int.self, forKey: .engineLossMax)
+        propellatn1 = try container.decode(String.self, forKey: .propellatn1)
+        propellatn2 = try container.decode(String.self, forKey: .propellatn2)
         thrustSeaLevel = try container.decode(SeaLevel.self, forKey: .thrustSeaLevel)
         thrustVacum = try container.decode(SeaLevel.self, forKey: .thrustVacum)
-        thrustToWeight = try container.decode(Int.self, forKey: .thrustToWeight)
+        thrustToWeight = try container.decode(Double.self, forKey: .thrustToWeight)
     }
 }
 
@@ -264,7 +269,7 @@ struct LandingLegs: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         number = try container.decode(Int.self, forKey: .number)
-        material = try container.decode(String.self, forKey: .material)
+        material = try container.decodeIfPresent(String.self, forKey: .material) ?? "No information"
     }
 }
 
@@ -273,7 +278,7 @@ struct ISP: Codable {
     let vacuum: Int
     
     public enum CodingKeys: String, CodingKey {
-        case seaLevel
+        case seaLevel = "sea_level"
         case vacuum
     }
     
