@@ -128,7 +128,7 @@ class RocketCell: UICollectionViewCell {
     /// Setting data to cell fields
     /// - Parameter model: Rocket model
     func setupCell(model: RocketCellModel) {
-        rocketImage.image = model.rocketImage
+        rocketImage.image = UIImage() //model.rocketImage
         titleLabel.text = model.rocketName
         launchDateLabel.text = model.launchDate
         costLabel.text = model.cost

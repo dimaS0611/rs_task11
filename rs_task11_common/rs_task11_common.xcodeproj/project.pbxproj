@@ -20,6 +20,7 @@
 		D4A53BF026EB41CA00362150 /* NetResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A53BEF26EB41CA00362150 /* NetResult.swift */; };
 		D4AF6AB126EBEDEF00C44EA6 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF6AB026EBEDEF00C44EA6 /* LaunchesViewController.swift */; };
 		D4AF6AB326EBEEEA00C44EA6 /* LaunchpadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF6AB226EBEEEA00C44EA6 /* LaunchpadsViewController.swift */; };
+		D4BEA97C26EE28F50065BF45 /* RocketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BEA97B26EE28F50065BF45 /* RocketsViewModel.swift */; };
 		D4C4471E26EBB0B3001A2775 /* RocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4471D26EBB0B3001A2775 /* RocketsViewController.swift */; };
 		D4C4472026EBB471001A2775 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4471F26EBB471001A2775 /* UIColor+Extension.swift */; };
 		D4CAA8A726EA56A300F50931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CAA8A626EA56A300F50931 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		D4A53BEF26EB41CA00362150 /* NetResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetResult.swift; sourceTree = "<group>"; };
 		D4AF6AB026EBEDEF00C44EA6 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
 		D4AF6AB226EBEEEA00C44EA6 /* LaunchpadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadsViewController.swift; sourceTree = "<group>"; };
+		D4BEA97B26EE28F50065BF45 /* RocketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewModel.swift; sourceTree = "<group>"; };
 		D4C4471D26EBB0B3001A2775 /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
 		D4C4471F26EBB471001A2775 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D4CAA8A326EA56A300F50931 /* rs_task11_common.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rs_task11_common.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,7 @@
 		D4C4471B26EBAFA6001A2775 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D4BEA97B26EE28F50065BF45 /* RocketsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4BEA97C26EE28F50065BF45 /* RocketsViewModel.swift in Sources */,
 				D4CAA8AB26EA56A300F50931 /* TabBarController.swift in Sources */,
 				D4AF6AB326EBEEEA00C44EA6 /* LaunchpadsViewController.swift in Sources */,
 				D4C4472026EBB471001A2775 /* UIColor+Extension.swift in Sources */,

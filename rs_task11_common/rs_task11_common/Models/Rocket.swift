@@ -15,7 +15,7 @@ public struct RocketModel: Codable {
     let boosters: Int
     let cost: Int
     let success: Int
-    let firstFlight: Int
+    let firstFlight: String
     let country: String
     let company: String
     let height: Size
@@ -63,7 +63,7 @@ public struct RocketModel: Codable {
         boosters = try container.decode(Int.self, forKey: .boosters)
         cost = try container.decode(Int.self, forKey: .cost)
         success = try container.decode(Int.self, forKey: .success)
-        firstFlight = try container.decode(Int.self, forKey: .firstFlight)
+        firstFlight = try container.decode(String.self, forKey: .firstFlight)
         country = try container.decode(String.self, forKey: .country)
         company = try container.decode(String.self, forKey: .company)
         height = try container.decode(Size.self, forKey: .height)

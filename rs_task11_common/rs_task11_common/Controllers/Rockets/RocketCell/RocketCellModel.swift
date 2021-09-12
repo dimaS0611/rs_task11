@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct RocketCellModel {
-    var rocketImage: UIImage!
+    var rocketImage: URL?
     var rocketName: String
     var launchDate: String
     var cost: String
